@@ -1,0 +1,157 @@
+:root {
+  --color: #001f3f;
+  --text-color: #f9f9f9;
+  --primary-color: #146cab;
+  --todobackground: #d1dde7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16pt;
+  color: #d1dde7;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 700px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#todo-input {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  border-radius: 1000px;
+  font: inherit;
+  color: var(--color);
+  caret-color: black;
+  border: none;
+}
+
+#todo-input:focus {
+  outline: none;
+}
+
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--todobackground);
+  font: 16px;
+  text-shadow: 0 0 20px #ffffff, 0 0 100px #1b4e6e;
+}
+
+form {
+  position: relative;
+}
+
+#add-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  height: 100%;
+  border-radius: 100px;
+  font: inherit;
+  color: var(--text-color);
+  padding: 0 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#add-button:hover {
+  background-color: #146cab;
+  opacity: 0.9;
+  transition: 200ms ease;
+}
+
+.to-list {
+  margin-bottom: 10px;
+  padding: 0 1rem;
+  border-radius: none;
+  display: flex;
+  align-items: center;
+  background-color: var(--todobackground);
+}
+
+.to-list .todo-text {
+  padding: 12px;
+  padding-right: 0;
+  flex-grow: 1;
+}
+
+.delete-btn {
+  background-color: var(--primary-color);
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 200ms ease;
+}
+
+/* .to-list {
+  text-decoration: line-through;
+} */
+
+.custom-checkbox {
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  min-height: 10px;
+  min-width: 10px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  transition: 200ms ease;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+  text-decoration: line-through;
+  color: #7c7979;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  html {
+    font: 12px;
+  }
+
+  #add-button {
+    position: unset;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+  }
+
+  #add-button:hover {
+    background-color: #146cab;
+    opacity: 0.8;
+    transition: 200ms ease;
+  }
+  h1 {
+    font: 12px;
+  }
+}
