@@ -1,6 +1,6 @@
 :root {
   --color: #001f3f;
-  --text-color: #f9f9f9;
+  --text-color: #ffffff;
   --primary-color: #146cab;
   --todobackground: #d1dde7;
 }
@@ -11,9 +11,13 @@
 }
 
 html {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
   font-size: 16pt;
-  color: #d1dde7;
+  color: var(--color);
 }
 
 body {
@@ -37,11 +41,15 @@ body {
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
-  border-radius: 1000px;
+  border-radius: 100px;
   font: inherit;
   color: var(--color);
   caret-color: black;
   border: none;
+}
+.wrapper ::placeholder {
+  color: var(--primary-color);
+  font-style: italic;
 }
 
 #todo-input:focus {
@@ -83,7 +91,7 @@ form {
 .to-list {
   margin-bottom: 10px;
   padding: 0 1rem;
-  border-radius: none;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   background-color: var(--todobackground);
