@@ -1,13 +1,23 @@
 const toToForm = document.querySelector("form");
 const toDoInput = document.getElementById("todo-input");
 const toDoList = document.getElementById("todoList");
-
+const addButton = document.getElementById("add-button");
 let AllPlan = [];
 
 toDoList.style.listStyleType = "none";
 toToForm.addEventListener("submit", function (e) {
   e.preventDefault();
   addPlan();
+});
+
+// Add event delegation for delete button clicks
+toDoList.addEventListener("click", function (e) {
+  if (e.target.closest(".delete-btn")) {
+    const liToDelete = e.target.closest("li");
+    if (liToDelete) {
+      liToDelete.remove();
+    }
+  }
 });
 
 function addPlan() {
@@ -20,7 +30,7 @@ function addPlan() {
 }
 function updatePlan(plan, todoIndex) {}
 
-function createPlanItem(plan, index) {
+function createPlanItem(plan) {
   const planLi = document.createElement("li");
   planLi.className = "to-list";
   planLi.innerHTML = `
